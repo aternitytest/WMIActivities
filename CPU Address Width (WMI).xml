@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- example for an WMI query plugin.--><GenericPlugin>
+    <Application>
+        <monitoredAttributes>
+            <monitoredAttribute agentPluginName="AddressWidth" display_units="Number" enabled="true" maType="PluginMonitored2" sensitivity="1" uiName="Address Width" units="Number" usageValue="NotSpecified" useForDashboard="true"/>
+        </monitoredAttributes>
+    </Application>
+    <AgentConfiguration>
+        <Plugin alias="WMI" dllName="WMIPlugin.dll" frequency="60"/>
+        <Parameters>
+            <Parameter name="WqlQuery" value="SELECT * FROM Win32_Processor WHERE DeviceID = &quot;CPU0&quot;"/>
+            <Parameter name="Namespace" value="\root\CIMV2"/>
+            <Parameter name="ShouldImpersonate" value="false"/>
+            <Parameter name="RefreshType" value="Full"/>
+            <Parameter name="NumAllowedExceptions" value="4"/>
+        </Parameters>
+    </AgentConfiguration>
+</GenericPlugin>

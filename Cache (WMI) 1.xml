@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- example for an WMI query plugin.--><GenericPlugin>
+    <Application>
+        <monitoredAttributes>
+            <monitoredAttribute agentPluginName="AsyncCopyReadsPersec" display_units="Number" enabled="true" maType="PluginMonitored1" sensitivity="1" uiName="AsyncCopyReadsPersec" units="Number" usageValue="NotSpecified" useForDashboard="false" />
+			<monitoredAttribute agentPluginName="AsyncDataMapsPersec" display_units="Number" enabled="true" maType="PluginMonitored2" sensitivity="1" uiName="AsyncDataMapsPersec" units="Number" usageValue="NotSpecified" useForDashboard="false" />
+			<monitoredAttribute agentPluginName="AsyncFastReadsPersec" display_units="Number" enabled="true" maType="PluginMonitored3" sensitivity="1" uiName="AsyncFastReadsPersec" units="Number" usageValue="NotSpecified" useForDashboard="false" />
+			<monitoredAttribute agentPluginName="AsyncMDLReadsPersec" display_units="Number" enabled="true" maType="PluginMonitored4" sensitivity="1" uiName="AsyncMDLReadsPersec" units="Number" usageValue="NotSpecified" useForDashboard="false" />
+			<monitoredAttribute agentPluginName="AsyncPinReadsPersec" display_units="Number" enabled="true" maType="PluginMonitored5" sensitivity="1" uiName="AsyncPinReadsPersec" units="Number" usageValue="NotSpecified" useForDashboard="false" />
+			<monitoredAttribute agentPluginName="CopyReadHitsPercent" display_units="Percent" enabled="true" maType="PluginMonitored6" sensitivity="1" uiName="CopyReadHitsPercent" units="Percent" usageValue="NotSpecified" useForDashboard="false" />
+            <monitoredAttribute agentPluginName="CopyReadsPersec" display_units="Number" enabled="true" maType="PluginMonitored7" sensitivity="1" uiName="CopyReadsPersec" units="Number" usageValue="NotSpecified" useForDashboard="false" />
+		</monitoredAttributes>
+    </Application>
+    <AgentConfiguration>
+        <Plugin alias="WMI" dllName="WMIPlugin.dll" frequency="60"/>
+        <Parameters>
+            <Parameter name="WqlQuery" value="Select * from Win32_PerfFormattedData_PerfOS_Cache"/>
+            <Parameter name="Namespace" value="\root\CIMV2"/>
+            <Parameter name="ShouldImpersonate" value="false"/>
+            <Parameter name="RefreshType" value="Full"/>
+            <Parameter name="NumAllowedExceptions" value="4"/>
+        </Parameters>
+    </AgentConfiguration>
+</GenericPlugin>
